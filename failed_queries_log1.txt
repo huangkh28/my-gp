@@ -1,0 +1,249 @@
+=== 广东省土地管理条例 RAG 错题本 (失败 Cypher 诊断日志) ===
+
+【问题 ID】: basic_02
+【测试问题】: 乡镇企业建设需要使用农村集体所有土地的，应该由谁来批准？
+【预期关键词】: ['县级人民政府', '批准']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "乡镇企业 AND 集体所有土地 AND 批准") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_02
+【测试问题】: 县级以上人民政府自然资源主管部门在调查处理土地违法案件期间，有什么特别的职权？
+【预期关键词】: ['暂停', '土地审批', '登记手续']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地违法 AND 调查 AND 职权") YIELD node, score
+MATCH (target:Agent)<-[:INCLUDES_LEVEL*0..]-(agent:Agent)-[:HAS_AUTHORITY]->(node:Authority)
+WHERE target.name CONTAINS '自然资源' AND target.name CONTAINS '县级'
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_06
+【测试问题】: 省国土空间总体规划需要报给哪个层级的机关批准？
+【预期关键词】: ['国务院', '批准']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "国土空间总体规划 AND 省 AND 批准") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_05
+【测试问题】: 在城镇开发边界外的乡村地区，详细规划应该如何组织编制？
+【预期关键词】: ['村庄规划', '乡镇人民政府']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "乡村 AND 详细规划 AND 编制") YIELD node, score
+MATCH (agent:Agent)-[:HAS_DUTY|HAS_AUTHORITY]->(node)
+RETURN agent.name, node.description, node.full_text, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_03
+【测试问题】: 国土空间规划一旦批准后，如果确实需要修改，应该走什么流程？
+【预期关键词】: ['不得擅自修改', '原批准机关同意', '法定程序']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "国土空间规划 AND 修改 AND 批准") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+RETURN agent.name, node.description, node.full_text, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_04
+【测试问题】: 依法批准占用耕地进行非农业建设的单位，如果没有条件开垦新的耕地，应该承担什么法律义务？
+【预期关键词】: ['缴纳耕地开垦费', '调剂使用', '占补平衡']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "耕地 AND 非农业建设 AND 开垦") YIELD node, score
+MATCH (agent:Agent)-[:HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_08
+【测试问题】: 开垦耕地计划由哪一级政府负责组织实施？
+【预期关键词】: ['地级以上市人民政府', '组织实施']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "开垦耕地 AND 计划 AND 负责") YIELD node, score
+MATCH (agent:Agent)-[:HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_07
+【测试问题】: 在什么情况下，自然资源主管部门会对土地复垦方案安排的土地复垦费用不予通过审查？
+【预期关键词】: ['测算不足够', '不合理', '预存和使用计划不清晰']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地复垦 AND 费用 AND 审查") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY]->(node)
+WHERE agent.name CONTAINS '自然资源'
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+UNION
+CALL db.index.fulltext.queryNodes("text_search_index", "土地复垦 AND 费用 AND 审查") YIELD node, score
+MATCH (node)-[:INVOLVES]->(agent:Agent)
+WHERE agent.name CONTAINS '自然资源'
+RETURN agent.name, node.full_text, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_09
+【测试问题】: 建设占用土地如果涉及农用地转为建设用地，应当办理什么手续？
+【预期关键词】: ['农用地转用审批手续']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "农用地 AND 建设用地 AND 批准") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_08
+【测试问题】: 进行土地现状调查时，如果个别土地所有权人因客观原因无法确认结果，政府部门应当如何处理？
+【预期关键词】: ['注明原因', '见证', '公证留存', '公示']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地现状调查 AND 确认 AND 处理") YIELD node, score
+MATCH (concept:Concept)<-[:BELONGS_TO_CONCEPT]-(agent:Agent)
+WHERE concept.name IN ["政府机关", "主管部门"]
+MATCH (agent)-[:HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_10
+【测试问题】: 政府在供应新的国有工业用地时，与取得方签订的项目履约监管协议中可以包含哪些具体内容？
+【预期关键词】: ['产业准入条件', '投产时间', '投资强度', '退出机制']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "工业用地 AND 履约监管协议") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+MATCH (agent)-[:BELONGS_TO_CONCEPT]->(c:Concept)
+WHERE c.name IN ["政府机关", "主管部门"]
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_11
+【测试问题】: 如果某个土地储备机构未被纳入国家名录，它还能继续负责土地储备的具体实施工作吗？
+【预期关键词】: ['未纳入国家名录', '不得承担']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地储备 AND 机构 AND 名录") YIELD node, score
+MATCH (agent:Agent)
+WHERE (agent)-[:HAS_AUTHORITY|HAS_DUTY|PROHIBITED_FROM|SUBJECT_TO]->(node) OR (node:Article)-[:INVOLVES]->(agent)
+RETURN agent.name, labels(node), coalesce(node.description, node.full_text, node.name) as content, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_11
+【测试问题】: 对于重大土地违法案件，如果地市级自然资源主管部门未按时限办理，省自然资源主管部门可以采取哪些措施？
+【预期关键词】: ['责令限期整改', '暂停', '农用地转用', '征收土地审批']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地违法 AND 时限 AND 措施") YIELD node, score
+MATCH (target:Agent)<-[:INCLUDES_LEVEL*0..]-(parent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+WHERE target.name CONTAINS '省' AND target.name CONTAINS '自然资源'
+RETURN parent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_13
+【测试问题】: 如果单位或个人违反国土空间规划，擅自占用未利用地新建建筑物，除了限期拆除外，还可能面临怎样的经济处罚？
+【预期关键词】: ['可以并处罚款', '每平方米一百元以上一千元以下']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "未利用地 AND 建筑物 AND 处罚") YIELD node, score
+MATCH (agent:Agent)-[:SUBJECT_TO]->(node:Penalty)
+RETURN agent.name, node.description, node.condition, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_12
+【测试问题】: 用地单位未按规定足额预存土地复垦费用，在被责令限期改正后仍逾期不改的，会被处以多少金额的罚款？
+【预期关键词】: ['十万元以上', '五十万元以下']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地复垦费用 AND 预存 AND 罚款") YIELD node, score
+MATCH (node:Penalty)
+RETURN node.description, node.condition, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_15
+【测试问题】: 《广东省土地管理条例》是从哪一年哪一月开始施行的？
+【预期关键词】: ['2022年8月1日']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "广东省土地管理条例") YIELD node, score
+WHERE node:Document
+RETURN node.name, node.promulgation_date
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_16
+【测试问题】: 哪些部门应当建立土地管理信息共享机制，以实现数据共享和业务协同？
+【预期关键词】: ['发展改革', '人力资源社会保障', '住房城乡建设', '交通运输', '政务服务数据管理']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "信息共享 AND 土地管理") YIELD node, score
+MATCH (agent:Agent)-[:HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_14
+【测试问题】: 如果确需修改已经依法批准的国土空间规划，必须经过哪个机关同意才能按程序修改？
+【预期关键词】: ['原批准机关', '同意']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "国土空间规划 AND 修改 AND 批准") YIELD node, score
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: basic_19
+【测试问题】: 县级以上人民政府自然资源等部门应当运用哪些现代技术手段来加强土地违法行为的监测？
+【预期关键词】: ['卫星遥感', '无人机航摄', '视频监控']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地违法 AND 监测 AND 技术") YIELD node, score
+MATCH (agent:Agent)-[:HAS_DUTY]->(node)
+WHERE agent.name CONTAINS '自然资源'
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: stress_15
+【测试问题】: 县级以上人民政府可以根据哪些具体情况，奖励或者扣减下级政府的土地利用年度计划指标？
+【预期关键词】: ['耕地保护', '土地利用计划执行', '土地节约集约利用', '土地利用秩序']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "土地利用年度计划指标 AND 奖励") YIELD node, score
+MATCH (target:Agent)<-[:INCLUDES_LEVEL*0..]-(parent:Agent)-[:HAS_AUTHORITY]->(node)
+WHERE target.name CONTAINS '县级以上'
+RETURN parent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+
+【问题 ID】: multihop_16
+【测试问题】: 如果有关部门拒绝、阻碍土地督察机构依法执行职务，对直接负责的主管人员依法应当如何处理？
+【预期关键词】: ['依法给予处分', '构成犯罪', '追究刑事责任']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+CALL db.index.fulltext.queryNodes("text_search_index", "拒绝 AND 阻碍 AND 土地督察 AND 主管人员") YIELD node, score
+MATCH (agent:Agent)-[:SUBJECT_TO]->(node:Penalty)
+RETURN agent.name, node.description, score
+ORDER BY score DESC
+--------------------------------------------------
+

@@ -1,0 +1,352 @@
+[
+  {
+    "id": "basic_01",
+    "category": "基础检索",
+    "question": "编制国土空间规划时，应该划定落实哪几条控制线？",
+    "expected_keywords": ["永久基本农田", "生态保护红线", "城镇开发边界"],
+    "expected_answer_points": "应当划定落实永久基本农田、生态保护红线和城镇开发边界。[cite: 29]"
+  },
+  {
+    "id": "basic_02",
+    "category": "基础检索",
+    "question": "乡镇企业建设需要使用农村集体所有土地的，应该由谁来批准？",
+    "expected_keywords": ["县级人民政府", "批准"],
+    "expected_answer_points": "由县级人民政府批准。[cite: 114]"
+  },
+  {
+    "id": "multihop_01",
+    "category": "跨节点多跳推理",
+    "question": "如果有个别单位未经批准非法占用土地，县级以上人民政府自然资源主管部门可以给予哪些处罚？",
+    "expected_keywords": ["退还非法占用", "限期拆除", "没收", "罚款"],
+    "expected_answer_points": "可以责令退还非法占用的土地，对违反规划的限期拆除，符合规划的没收新建建筑物，可以并处每平方米一百元以上一千元以下的罚款。[cite: 145]"
+  },
+  {
+    "id": "multihop_02",
+    "category": "跨节点多跳推理",
+    "question": "县级以上人民政府自然资源主管部门在调查处理土地违法案件期间，有什么特别的职权？",
+    "expected_keywords": ["暂停", "土地审批", "登记手续"],
+    "expected_answer_points": "有权暂停或者责令暂停办理与该违法案件相关的土地审批、登记等手续。[cite: 141]"
+  },
+  {
+    "id": "stress_01",
+    "category": "边界抗压测试-排他条件",
+    "question": "对于永久基本农田范围以外的优质耕地，条例规定应该怎么处理？",
+    "expected_keywords": ["永久基本农田储备区", "划入", "后备资源"],
+    "expected_answer_points": "应当将永久基本农田范围以外一定数量的优质耕地划入永久基本农田储备区，作为补划的后备资源。[cite: 51]"
+  },
+  {
+    "id": "stress_02",
+    "category": "边界抗压测试-条件分支",
+    "question": "农村村民一户一宅的面积有什么具体的标准要求？",
+    "expected_keywords": ["平原地区", "八十平方米", "丘陵地区", "一百二十平方米", "山区", "一百五十平方米"],
+    "expected_answer_points": "平原地区和城市郊区每户不超过八十平方米，丘陵地区不超过一百二十平方米，山区不超过一百五十平方米。[cite: 119]"
+  },
+  {
+    "id": "stress_03",
+    "category": "边界抗压测试-长列表实体",
+    "question": "在推进旧城镇、旧厂房、旧村庄改造时，有哪些特定的历史或自然资源必须得到依法保护？",
+    "expected_keywords": ["历史文化名城", "不可移动文物", "历史建筑", "古树名木"],
+    "expected_answer_points": "依法保护历史文化名城、名镇、名村、街区和不可移动文物、历史建筑、历史地段、非物质文化遗产、红色资源、自然景观、古树名木等。[cite: 125]"
+  },
+  {
+    "id": "basic_03",
+    "category": "基础检索",
+    "question": "本省负责土地管理和监督工作的具体部门是哪个？",
+    "expected_keywords": ["自然资源主管部门", "县级以上人民政府"],
+    "expected_answer_points": "县级以上人民政府自然资源主管部门负责土地管理和监督工作。[cite: 16]"
+  },
+  {
+    "id": "basic_04",
+    "category": "基础检索",
+    "question": "农村宅基地改革和管理相关工作由谁负责？",
+    "expected_keywords": ["农业农村主管部门", "县级以上"],
+    "expected_answer_points": "县级以上人民政府农业农村主管部门负责农村宅基地改革和管理相关工作。[cite: 17]"
+  },
+  {
+    "id": "basic_05",
+    "category": "基础检索",
+    "question": "国土空间基础信息平台的主要支撑作用是什么？",
+    "expected_keywords": ["国土空间规划", "不动产登记", "动态监测"],
+    "expected_answer_points": "支撑国土空间规划、耕地保护、土地开发利用、不动产登记等事项的信息化管理，对土地利用状况进行动态监测。[cite: 20]"
+  },
+  {
+    "id": "stress_04",
+    "category": "边界抗压测试-条件分支",
+    "question": "各级国土空间规划之间（总体、详细、专项）应当遵循什么服从关系？",
+    "expected_keywords": ["下级服从上级", "详细规划", "专项规划", "服从总体规划"],
+    "expected_answer_points": "下级国土空间规划服从上级；详细规划、专项规划应当服从总体规划。[cite: 28]"
+  },
+  {
+    "id": "basic_06",
+    "category": "基础检索",
+    "question": "省国土空间总体规划需要报给哪个层级的机关批准？",
+    "expected_keywords": ["国务院", "批准"],
+    "expected_answer_points": "经省人民代表大会常务委员会审议后，报国务院批准。[cite: 31]"
+  },
+  {
+    "id": "stress_05",
+    "category": "边界抗压测试-排他条件",
+    "question": "在城镇开发边界外的乡村地区，详细规划应该如何组织编制？",
+    "expected_keywords": ["村庄规划", "乡镇人民政府"],
+    "expected_answer_points": "由乡镇人民政府以行政村为单元，组织编制村庄规划作为详细规划。[cite: 36]"
+  },
+  {
+    "id": "multihop_03",
+    "category": "跨节点多跳推理",
+    "question": "国土空间规划一旦批准后，如果确实需要修改，应该走什么流程？",
+    "expected_keywords": ["不得擅自修改", "原批准机关同意", "法定程序"],
+    "expected_answer_points": "不得擅自修改；确需修改的，应当经原批准机关同意后，按法定程序进行修改。[cite: 42]"
+  },
+  {
+    "id": "basic_07",
+    "category": "基础检索",
+    "question": "在本行政区域内，谁是耕地保护工作的第一责任人？",
+    "expected_keywords": ["主要负责人", "各级人民政府"],
+    "expected_answer_points": "各级人民政府对本行政区域耕地保护负总责，其主要负责人为第一责任人。[cite: 46]"
+  },
+  {
+    "id": "stress_06",
+    "category": "边界抗压测试-数值提取",
+    "question": "地级以上市划定的永久基本农田一般应当占本区域耕地总面积的多少比例？",
+    "expected_keywords": ["百分之八十以上"],
+    "expected_answer_points": "一般应当占本行政区域耕地总面积的百分之八十以上。[cite: 50]"
+  },
+  {
+    "id": "multihop_04",
+    "category": "跨节点多跳推理",
+    "question": "依法批准占用耕地进行非农业建设的单位，如果没有条件开垦新的耕地，应该承担什么法律义务？",
+    "expected_keywords": ["缴纳耕地开垦费", "调剂使用", "占补平衡"],
+    "expected_answer_points": "应当缴纳耕地开垦费用于开垦新耕地，或者通过调剂使用补充耕地指标的方式落实耕地占补平衡。[cite: 52]"
+  },
+  {
+    "id": "multihop_05",
+    "category": "跨节点多跳推理",
+    "question": "设施农业用地如果以后不再使用了，用地单位应当采取什么措施？",
+    "expected_keywords": ["及时恢复种植条件", "设施农业用地"],
+    "expected_answer_points": "不再使用的，应当及时恢复种植条件。[cite: 60]"
+  },
+  {
+    "id": "basic_08",
+    "category": "基础检索",
+    "question": "开垦耕地计划由哪一级政府负责组织实施？",
+    "expected_keywords": ["地级以上市人民政府", "组织实施"],
+    "expected_answer_points": "由地级以上市人民政府组织实施。[cite: 63]"
+  },
+  {
+    "id": "stress_07",
+    "category": "边界抗压测试-条件分支",
+    "question": "在什么情况下，自然资源主管部门会对土地复垦方案安排的土地复垦费用不予通过审查？",
+    "expected_keywords": ["测算不足够", "不合理", "预存和使用计划不清晰"],
+    "expected_answer_points": "土地复垦费用测算不足够、不合理，或者预存和使用计划不清晰的，不予通过审查。[cite: 65]"
+  },
+  {
+    "id": "multihop_06",
+    "category": "跨节点多跳推理",
+    "question": "非农业建设占用耕地，如果因为严重污染等原因导致无法剥离耕作层，可以直接不剥离吗？",
+    "expected_keywords": ["县级人民政府同意", "方可不实施剥离"],
+    "expected_answer_points": "确因严重破坏或严重污染无法剥离再利用的，需经县级人民政府同意后方可不实施剥离。[cite: 71]"
+  },
+  {
+    "id": "basic_09",
+    "category": "基础检索",
+    "question": "建设占用土地如果涉及农用地转为建设用地，应当办理什么手续？",
+    "expected_keywords": ["农用地转用审批手续"],
+    "expected_answer_points": "应当办理农用地转用审批手续。[cite: 75]"
+  },
+  {
+    "id": "multihop_07",
+    "category": "跨节点多跳推理",
+    "question": "征收土地预公告的发布时长有什么要求？公告必须通过哪些方式发布？",
+    "expected_keywords": ["不少于十个工作日", "书面张贴", "网站公开"],
+    "expected_answer_points": "预公告时间不少于十个工作日；采用书面张贴、网站公开、信息推送或者上户送达等方式。[cite: 80]"
+  },
+  {
+    "id": "stress_08",
+    "category": "边界抗压测试-异常处理",
+    "question": "进行土地现状调查时，如果个别土地所有权人因客观原因无法确认结果，政府部门应当如何处理？",
+    "expected_keywords": ["注明原因", "见证", "公证留存", "公示"],
+    "expected_answer_points": "应当在调查结果中注明原因，采取见证、公证等方式留存记录，并在规定范围内公示，时间不少于十个工作日。[cite: 82]"
+  },
+  {
+    "id": "basic_10",
+    "category": "基础检索",
+    "question": "拟征收土地的社会稳定风险评估由谁组织或者委托开展？",
+    "expected_keywords": ["县级以上人民政府", "委托第三方机构"],
+    "expected_answer_points": "由县级以上人民政府组织有关部门或者委托第三方机构开展。[cite: 83]"
+  },
+  {
+    "id": "stress_09",
+    "category": "边界抗压测试-条件分支",
+    "question": "在发布征地补偿安置公告后，满足什么条件应当组织召开听证会？",
+    "expected_keywords": ["过半数成员有异议", "确有必要"],
+    "expected_answer_points": "过半数被征地的农村集体经济组织成员有异议，或者县级以上人民政府认为确有必要的。[cite: 87]"
+  },
+  {
+    "id": "multihop_08",
+    "category": "跨节点多跳推理",
+    "question": "如果政府申请征收土地，但没有将有关补偿费用足额预存到专门账户，会有什么后果？",
+    "expected_keywords": ["不得批准", "征收土地"],
+    "expected_answer_points": "有关费用未足额预存到专门账户的，不得批准征收土地。[cite: 91]"
+  },
+  {
+    "id": "multihop_09",
+    "category": "跨节点多跳推理",
+    "question": "征收农用地的土地补偿费和安置补助费的标准依据什么来确定？",
+    "expected_keywords": ["区片综合地价"],
+    "expected_answer_points": "由区片综合地价确定。[cite: 100]"
+  },
+  {
+    "id": "basic_11",
+    "category": "基础检索",
+    "question": "年度建设用地供应计划经批准后，应当通过什么渠道向社会公布？",
+    "expected_keywords": ["政府网站"],
+    "expected_answer_points": "在政府网站上向社会公布，供社会公众查阅。[cite: 110]"
+  },
+  {
+    "id": "multihop_10",
+    "category": "跨节点多跳推理",
+    "question": "政府在供应新的国有工业用地时，与取得方签订的项目履约监管协议中可以包含哪些具体内容？",
+    "expected_keywords": ["产业准入条件", "投产时间", "投资强度", "退出机制"],
+    "expected_answer_points": "明确产业准入条件、投产时间、投资强度、产出效率、退出机制、股权变更约束、生态环境保护要求等内容。[cite: 112]"
+  },
+  {
+    "id": "stress_10",
+    "category": "边界抗压测试-排他条件",
+    "question": "对于进城落户的农村村民依法自愿有偿退出的宅基地，该宅基地应当优先作何用途？",
+    "expected_keywords": ["优先用于保障", "本农村集体经济组织成员"],
+    "expected_answer_points": "应当优先用于保障本农村集体经济组织成员的宅基地需求。[cite: 123]"
+  },
+  {
+    "id": "multihop_11",
+    "category": "跨节点多跳推理",
+    "question": "如果某个土地储备机构未被纳入国家名录，它还能继续负责土地储备的具体实施工作吗？",
+    "expected_keywords": ["未纳入国家名录", "不得承担"],
+    "expected_answer_points": "未纳入国家名录的，不得承担土地储备相关工作。[cite: 126]"
+  },
+  {
+    "id": "multihop_12",
+    "category": "跨节点多跳推理",
+    "question": "地质勘查单位如果需要临时使用农民集体所有土地，必须和谁签订临时使用土地合同？",
+    "expected_keywords": ["农村集体经济组织", "村民委员会"],
+    "expected_answer_points": "应当与土地所属的农村集体经济组织或者村民委员会签订合同。[cite: 129]"
+  },
+  {
+    "id": "basic_12",
+    "category": "基础检索",
+    "question": "对地级以上市人民政府土地利用情况进行督察的土地督察制度，由哪一级政府建立？",
+    "expected_keywords": ["省人民政府"],
+    "expected_answer_points": "省人民政府建立土地督察制度。[cite: 133]"
+  },
+  {
+    "id": "stress_11",
+    "category": "边界抗压测试-条件分支",
+    "question": "对于重大土地违法案件，如果地市级自然资源主管部门未按时限办理，省自然资源主管部门可以采取哪些措施？",
+    "expected_keywords": ["责令限期整改", "暂停", "农用地转用", "征收土地审批"],
+    "expected_answer_points": "可以责令限期整改；经省政府同意，可在整改期间暂停或者责令暂停所在地有关农用地转用、征收土地的审批。[cite: 140]"
+  },
+  {
+    "id": "basic_13",
+    "category": "基础检索",
+    "question": "县级以上人民政府应当将哪些土地管理制度的执行情况向本级人民代表大会或常务委员会报告？",
+    "expected_keywords": ["国土空间规划", "土地利用年度计划", "耕地保护责任制"],
+    "expected_answer_points": "应当将国土空间规划、土地利用年度计划、耕地保护责任制等执行情况报告。[cite: 143]"
+  },
+  {
+    "id": "multihop_13",
+    "category": "跨节点多跳推理",
+    "question": "如果单位或个人违反国土空间规划，擅自占用未利用地新建建筑物，除了限期拆除外，还可能面临怎样的经济处罚？",
+    "expected_keywords": ["可以并处罚款", "每平方米一百元以上一千元以下"],
+    "expected_answer_points": "可以并处非法占用土地每平方米一百元以上一千元以下的罚款。[cite: 145]"
+  },
+  {
+    "id": "stress_12",
+    "category": "边界抗压测试-条件分支",
+    "question": "用地单位未按规定足额预存土地复垦费用，在被责令限期改正后仍逾期不改的，会被处以多少金额的罚款？",
+    "expected_keywords": ["十万元以上", "五十万元以下"],
+    "expected_answer_points": "处十万元以上五十万元以下的罚款。[cite: 146]"
+  },
+  {
+    "id": "basic_14",
+    "category": "基础检索",
+    "question": "如果有直接责任人员拒绝或阻碍土地督察机构依法执行职务，按照条例规定应如何追究责任？",
+    "expected_keywords": ["依法给予处分", "构成犯罪", "追究刑事责任"],
+    "expected_answer_points": "依照法律法规追究责任，依法给予处分；构成犯罪的，依法追究刑事责任。[cite: 147, 149, 155]"
+  },
+  {
+    "id": "basic_15",
+    "category": "基础检索",
+    "question": "《广东省土地管理条例》是从哪一年哪一月开始施行的？",
+    "expected_keywords": ["2022年8月1日"],
+    "expected_answer_points": "本条例自2022年8月1日起施行。[cite: 158]"
+  },
+  {
+    "id": "basic_16",
+    "category": "基础检索",
+    "question": "哪些部门应当建立土地管理信息共享机制，以实现数据共享和业务协同？",
+    "expected_keywords": ["发展改革", "人力资源社会保障", "住房城乡建设", "交通运输", "政务服务数据管理"],
+    "expected_answer_points": "自然资源、发展改革、人力资源社会保障、住房城乡建设、交通运输、农业农村、政务服务数据管理等有关部门应当建立土地管理信息共享机制[cite: 21]."
+  },
+  {
+    "id": "multihop_14",
+    "category": "跨节点多跳推理",
+    "question": "如果确需修改已经依法批准的国土空间规划，必须经过哪个机关同意才能按程序修改？",
+    "expected_keywords": ["原批准机关", "同意"],
+    "expected_answer_points": "应当经原批准机关同意后，方可按照法定程序进行修改[cite: 42]."
+  },
+  {
+    "id": "basic_17",
+    "category": "基础检索",
+    "question": "各级人民政府应当对在耕地保护方面表现突出的哪些对象予以奖励？",
+    "expected_keywords": ["成绩显著", "单位", "个人"],
+    "expected_answer_points": "对耕地保护成绩显著的单位和个人予以奖励[cite: 58]."
+  },
+  {
+    "id": "stress_13",
+    "category": "边界抗压测试-条件分支",
+    "question": "在什么极端情况下，非农业建设占用耕地可以免除实施耕作层剥离的义务？",
+    "expected_keywords": ["严重破坏", "严重污染", "无法剥离再利用", "县级人民政府同意"],
+    "expected_answer_points": "确因受到严重破坏或者严重污染等无法剥离再利用的，经县级人民政府同意后方可不实施剥离[cite: 71]."
+  },
+  {
+    "id": "multihop_15",
+    "category": "跨节点多跳推理",
+    "question": "依法由省人民政府批准的农用地转用，在报批前应当先经过哪一级政府审核？",
+    "expected_keywords": ["地级以上市人民政府", "审核"],
+    "expected_answer_points": "应当先经地级以上市人民政府审核[cite: 76]."
+  },
+  {
+    "id": "stress_14",
+    "category": "边界抗压测试-异常处理",
+    "question": "如果拟征收土地的所有权人未在规定期限内办理补偿登记，补偿的相关情况将如何确定？",
+    "expected_keywords": ["经确认", "公示", "土地现状调查结果"],
+    "expected_answer_points": "相关情况按照经确认或者公示的土地现状调查结果确定[cite: 88]."
+  },
+  {
+    "id": "basic_18",
+    "category": "基础检索",
+    "question": "集体经营性建设用地入市交易，必须纳入什么平台体系进行？",
+    "expected_keywords": ["公开的交易平台", "公共资源交易平台体系"],
+    "expected_answer_points": "纳入公共资源交易平台体系[cite: 117]."
+  },
+  {
+    "id": "basic_19",
+    "category": "基础检索",
+    "question": "县级以上人民政府自然资源等部门应当运用哪些现代技术手段来加强土地违法行为的监测？",
+    "expected_keywords": ["卫星遥感", "无人机航摄", "视频监控"],
+    "expected_answer_points": "运用卫星遥感、无人机航摄、视频监控等手段[cite: 137]."
+  },
+  {
+    "id": "stress_15",
+    "category": "边界抗压测试-长列表实体",
+    "question": "县级以上人民政府可以根据哪些具体情况，奖励或者扣减下级政府的土地利用年度计划指标？",
+    "expected_keywords": ["耕地保护", "土地利用计划执行", "土地节约集约利用", "土地利用秩序"],
+    "expected_answer_points": "根据耕地保护、土地利用计划执行、土地节约集约利用、土地利用秩序等情况[cite: 142]."
+  },
+  {
+    "id": "multihop_16",
+    "category": "跨节点多跳推理",
+    "question": "如果有关部门拒绝、阻碍土地督察机构依法执行职务，对直接负责的主管人员依法应当如何处理？",
+    "expected_keywords": ["依法给予处分", "构成犯罪", "追究刑事责任"],
+    "expected_answer_points": "依法给予处分；构成犯罪的，依法追究刑事责任[cite: 147, 149]."
+  }
+]

@@ -1,0 +1,47 @@
+=== 广东省土地管理条例 RAG 错题本 (失败 Cypher 诊断日志) ===
+
+【问题 ID】: stress_11
+【测试问题】: 对于重大土地违法案件，如果地市级自然资源主管部门未按时限办理，省自然资源主管部门可以采取哪些措施？
+【预期关键词】: ['责令限期整改', '暂停', '农用地转用', '征收土地审批']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+WHERE agent.name CONTAINS '省' AND agent.name CONTAINS '自然资源'
+AND (node.description CONTAINS '措施' OR node.full_text CONTAINS '措施' OR node.description CONTAINS '督办' OR node.full_text CONTAINS '督办' OR node.description CONTAINS '时限' OR node.full_text CONTAINS '时限')
+RETURN agent.name, node.description, node.condition, node.full_text
+--------------------------------------------------
+
+【问题 ID】: basic_15
+【测试问题】: 《广东省土地管理条例》是从哪一年哪一月开始施行的？
+【预期关键词】: ['2022年8月1日']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+MATCH (d:Document) WHERE d.name CONTAINS '广东省土地管理条例' RETURN d.name, d.promulgation_date
+--------------------------------------------------
+
+【问题 ID】: stress_13
+【测试问题】: 在什么极端情况下，非农业建设占用耕地可以免除实施耕作层剥离的义务？
+【预期关键词】: ['严重破坏', '严重污染', '无法剥离再利用', '县级人民政府同意']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+MATCH (node:Article)
+WHERE node.full_text CONTAINS '耕地' AND node.full_text CONTAINS '耕作层剥离' AND (node.full_text CONTAINS '免除' OR node.full_text CONTAINS '不宜' OR node.full_text CONTAINS '例外')
+RETURN node.number AS article_number, node.full_text AS content
+UNION
+MATCH (node:Obligation)
+WHERE node.description CONTAINS '耕地' AND node.description CONTAINS '耕作层剥离' AND (node.description CONTAINS '免除' OR node.description CONTAINS '不宜')
+RETURN node.source_article AS article_number, node.description AS content
+--------------------------------------------------
+
+【问题 ID】: stress_15
+【测试问题】: 县级以上人民政府可以根据哪些具体情况，奖励或者扣减下级政府的土地利用年度计划指标？
+【预期关键词】: ['耕地保护', '土地利用计划执行', '土地节约集约利用', '土地利用秩序']
+【失败原因】: 召回为空或未命中核心词
+【大模型生成的 Cypher】:
+MATCH (agent:Agent)-[:HAS_AUTHORITY|HAS_DUTY]->(node)
+WHERE agent.name CONTAINS '人民政府'
+AND (node.description CONTAINS '奖励' OR node.description CONTAINS '扣减')
+AND (node.description CONTAINS '计划指标' OR node.description CONTAINS '土地利用年度计划')
+RETURN agent.name, node.description, node.source_article
+--------------------------------------------------
+
